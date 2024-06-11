@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 
 export const useHairStore = defineStore("hairStore", {
   state: () => ({
-    lighteningTones: [ 
+    lighteningTones: [
       {
         type: "lighteningTone",
         active: false,
@@ -239,6 +239,7 @@ export const useHairStore = defineStore("hairStore", {
       fill: "",
       name: "Номер краски",
     },
+
   }),
 
   actions: {

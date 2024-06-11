@@ -55,8 +55,8 @@
   -ms-flex: 0 0 auto;
   -webkit-box-flex: 0;
   flex: 0 0 auto;
-  padding-right: 9px;
-  padding-left: 9px;
+ padding: 0 10px;
+ /* margin-bottom: 20px; */
 }
 
 
@@ -267,8 +267,7 @@
     -ms-flex: 0 0 auto;
     -webkit-box-flex: 0;
     flex: 0 0 auto;
-    padding-right: 4.5px;
-    padding-left: 4.5px;
+   padding: 12px 10px;
   }
 
   .col-sm {

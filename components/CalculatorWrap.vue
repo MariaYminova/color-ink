@@ -1,18 +1,14 @@
 <template>
   <div class="calculator-wrap row">
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 ">
       <div class="calculator-wrap__wrap">
         <div class="calculator-wrap__name">Этап 1</div>
         <div class="calculator-wrap__description">
           Ваш цвет волос
-          <div
-            class="calculator-wrap__icon-pop-up"
-            @click.stop="visibilityLighteningTone = !visibilityLighteningTone"
-          >
-            <PopUpInfo v-if="visibilityLighteningTone">
+          <PopUpInfo v-model="visibilityLighteningTone">
+              
               Ваш цвет волос - степень осветления ваших волос
             </PopUpInfo>
-          </div>
         </div>
 
         <div class="calculator-wrap__block">
@@ -30,15 +26,11 @@
         <div class="calculator-wrap__name">Этап 2</div>
         <div class="calculator-wrap__description">
           Ваш цвет волос
-          <div
-            class="calculator-wrap__icon-pop-up"
-            @click.stop="visibilityBaseColor = !visibilityBaseColor"
+          <PopUpInfo v-model="visibilityBaseColor"
+            >Основное направление красителя - отттенок натурального цвета,
+            которого в стандартной тубе 70%.</PopUpInfo
           >
-            <PopUpInfo v-if="visibilityBaseColor"
-              >Основное направление красителя - отттенок натурального цвета,
-              которого в стандартной тубе 70%.</PopUpInfo
-            >
-          </div>
+          
         </div>
 
         <div class="calculator-wrap__block">
@@ -56,15 +48,10 @@
         <div class="calculator-wrap__name">Этап 3</div>
         <div class="calculator-wrap__description">
           Дополнительный краситель
-          <div
-            class="calculator-wrap__icon-pop-up"
-            @click.stop="visibilityPigmentColor = !visibilityPigmentColor"
+          <PopUpInfo v-model="visibilityPigmentColor"
+            >Дополнительный краситель - добавочный пигмент, корректирующий цвет,
+            в стандартной тубе 30%.</PopUpInfo
           >
-            <PopUpInfo v-if="visibilityPigmentColor"
-              >Дополнительный краситель - добавочный пигмент, корректирующий
-              цвет, в стандартной тубе 30%.</PopUpInfo
-            >
-          </div>
         </div>
 
         <div class="calculator-wrap__block">
@@ -95,19 +82,6 @@ const visibilityLighteningTone = ref(false);
 const visibilityBaseColor = ref(false);
 const visibilityPigmentColor = ref(false);
 
-const handleClickOutside = () => {
-  visibilityLighteningTone.value = false;
-  visibilityBaseColor.value = false;
-  visibilityPigmentColor.value = false;
-};
-
-onMounted(() => {
-  document.addEventListener("click", handleClickOutside);
-});
-
-onBeforeUnmount(() => {
-  document.removeEventListener("click", handleClickOutside);
-});
 </script>
 
 <style lang="scss">
@@ -118,7 +92,18 @@ onBeforeUnmount(() => {
     box-shadow: 0px 0px 5px 1px #c0bcf0;
     border-radius: 10px;
     padding: 20px;
-    margin-bottom: 50px;
+  
+    
+    @media (max-width: 920px) {
+      height: 97%;
+    }
+
+    @media (max-width: 520px) {
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+   
   }
 
   &__block {
@@ -142,7 +127,7 @@ onBeforeUnmount(() => {
     font-size: 15px;
     font-weight: 400;
     margin-bottom: 30px;
-    width: 240px;
+
     height: 32px;
   }
 

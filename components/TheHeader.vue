@@ -12,9 +12,18 @@
   width: 100%;
   box-shadow: 0px -3px 8px 0px #6c62e1;
 
+  @media (max-width: 720px) {
+      padding: 0;
+    }
+
   &__logo {
     height: 65px;
     width: 65px;
+
+    @media (max-width: 720px) {
+      height: 55px;
+      width: 55px;
+    }
   }
 }
 </style>
